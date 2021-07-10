@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import review from "./images/review.svg";
 import "./file-css/menu.css";
 import Product from "./Product";
+import {actionTypes} from "../../Api/Instruments/actions";
 
-const Menu = ({ items, cartitems, onAdd, onRemove }) => {
-  console.log(cartitems);
+const Menu = ({ cartitems, onAdd, onRemove }) => {
+  const dispatch = useDispatch()
+  const { instruments, loading } = useSelector((state) => state.getInstruments)
+
+  useEffect(() => {
+    dispatch({type: actionTypes.GET_INSTRUMENTS})
+  }, [])
+  console.log(instruments);
   return (
     <div className="menu-container">
       <div className="side-bar">
@@ -59,17 +67,19 @@ const Menu = ({ items, cartitems, onAdd, onRemove }) => {
       </div>
 
       <div className="menu-display">
-        {items.map((product) => {
-          return (
-            <Product
-              key={product.id}
-              product={product}
-              onAdd={onAdd}
-              onRemove={onRemove}
-              cartitems={cartitems}
-            ></Product>
-          );
-        })}
+        {!loading ? (
+            instruments.map((instrument) => {
+              return (
+                  <Product
+                      key={instrument.id}
+                      product={instrument}
+                      onAdd={onAdd}
+                      onRemove={onRemove}
+                      cartitems={cartitems}
+                  />
+              );
+            })
+        ) : "loading..."}
       </div>
     </div>
   );

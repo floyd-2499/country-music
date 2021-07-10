@@ -1,23 +1,22 @@
 import React from "react";
 import "./file-css/menu.css";
-// import CartPage from "../mainpages/CartPage";
-// import { BrowserRouter, Route } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {actionTypes} from "../../actions/Cart/actions";
 
 const Product = (props) => {
-  const { product, onAdd} = props;
-  
-
+    const { product, onAdd} = props;
+    const dispatch = useDispatch()
+    const addToCart = () => {
+        dispatch({type: actionTypes.ADD_TO_CART, payload: product})
+    }
   return (
     <div className="box">
       <div className="image-sec">
-        <img src={product.img} alt={product.model} />
+        <img src={product.image} alt={product.model} />
       </div>
       <div className="item-desc">
+        <h3>{product.brand}</h3>
         <h3>{product.model}</h3>
-        <h3>{product.item}</h3>
-      </div>
-      <div className="rating">
-        <img src={product.stars} alt="stars" />
       </div>
       <h5 className="small">{/* for a line */}</h5>
       <div className="price">
@@ -31,9 +30,9 @@ const Product = (props) => {
       </div>
       <h5 className="small">{/* for a line */}</h5>
       <div className="button-div">
-        <div className="button" onClick={() => onAdd(product)}>
+        <button className="button" onClick={addToCart}>
           <small>Add to cart</small>
-        </div>
+        </button>
       </div>
     </div>
   );

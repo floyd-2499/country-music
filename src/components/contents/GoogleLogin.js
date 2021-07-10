@@ -4,7 +4,6 @@ import { signIn, signOut } from "../../actions";
 import "./file-css/header.css";
 
 class GoogleLogin extends React.Component {
-
   componentDidMount() {
     window.gapi.load("client:auth2", () => {
       window.gapi.client
@@ -15,7 +14,6 @@ class GoogleLogin extends React.Component {
         })
         .then(() => {
           this.auth = window.gapi.auth2.getAuthInstance();
-
           this.onAuthChange(this.auth.isSignedIn.get());
           this.auth.isSignedIn.listen(this.onAuthChange);
         });
@@ -70,8 +68,7 @@ class GoogleLogin extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { isSignedIn: state.auth.isSignedIn}
+  return { isSignedIn: state.auth?.isSignedIn}
 }
-
 
 export default connect(mapStateToProps, { signIn, signOut })(GoogleLogin);

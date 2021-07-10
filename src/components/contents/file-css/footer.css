@@ -1,0 +1,94 @@
+.footercontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  background-color: #ffffff;
+  -moz-box-shadow: inset 0 0 20px #000000;
+  -webkit-box-shadow: inset 0 0 20px #000000;
+  box-shadow: inset 0 0 20px #000000;
+}
+.part-b {
+  background-color: rgb(29, 29, 29);
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
+  height: 20%;
+  width: 100%;
+  text-align: center;
+}
+.part-b p {
+    color: white;
+    font-size: 18px;
+}
+
+.part-a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.part-a .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    margin: auto;
+}
+.part-a .address .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.part-a .address .logo img{
+    height: 140%;
+    width: 70%;
+    margin: auto;
+}
+.part-a .address .adtext {
+    line-height: 10px;
+    text-align: center;
+}
+.part-a .address .adtext p {
+    color: rgb(53, 44, 44);
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.part-a .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 55%;
+    width: 30%;
+    margin: auto;
+    background-color: #E65AAE;
+    border-radius: 30px;
+}
+.part-a .social .text {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
+}
+.part-a .social .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: 20px auto;
+}
+.part-a .social .icons i {
+    color: #f7e9e9;
+    font-size: 40px;
+}
